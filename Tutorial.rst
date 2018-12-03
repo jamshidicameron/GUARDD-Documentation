@@ -87,7 +87,6 @@ Load data
 ---------
 
 **Goal:** Get Relaxation Dispersion data into the program for analysis
-**Tip:** A variety of input types are available. See the Manual for more information
 
 Main
 
@@ -100,6 +99,41 @@ Input...Script...
 ::
    
     tutorial/data/GUARDD-Data-ApoTRAP-Kleckner.txt
+
+**Note:** There are two methods for importing your data to GUARDD
+
+-  Generate a data script
+
+   - Each data script will adhere to the following format
+
+::
+
+   NAME:	"The name for your dataset"
+   AX:		"Nucleus (e.g. 13C, 15N)"
+   B0:		"External field strength in units of MHz (e.g. 800.130981)" 
+   TEMPC:	"Temperature in units of degrees Celsius" 
+   TCPMG:	"CPMG time in units of seconds"
+   SQX:		"Boolean; set this to True if you're analyzing a single quantum dataset. Set it to False otherwise."
+   SETSPECS:	"This will set the previous specifications for the current dataset"
+   
+   INDEX:	"The identifier for the NMR signal. This is ideally a number (e.g. 26 if the signal corresponds to Ile26)"
+   ATOM: 	"The atom being analyzed (e.g. NH, CO, \delta_1)"
+   Residue	"Three letter code for the amino acid being analyzed (e.g. Ile for Isoleucine)"
+   OBS		VCPMG		R2		ERROR
+   
+\
+   -  OBS, VCPMG, R2 and ERROR are columns containing data from your CPMG experiment.
+   -  OBS will turn observation mode on and is required. This column should be numbered 1 through N where N is the number of data points recorded
+   -  The VCPMG column should contain your CPMG pulse frequencies
+   -  R2 should contain your observed R2 values at each CPMG frequency
+   -  ERROR is optional - this column should contain the errors, if known, for each measured R2 value.  
+   -  Example data script: tutorial/data/GUARDD-Data-ApoTRAP-Kleckner.txt
+
+-  An nlin.tab file from NMRPipe (containing your peak information) and a vcpmg.txt file (containing your CPMG pulse frequencies) may be used. 
+-  Examples...
+     
+   -  tutorial/data/example_files/TRAP-SteApo-A26I-25C-800MHz-MQ-14ppm-nlin.tab
+   -  tutorial/data/example_files/TRAP-SteApo-A26I-25C-800MHz-MQ-14ppm-taufile.txt
 
 14 datasets loaded
 
@@ -224,39 +258,37 @@ Fit RD
 
 Contains 6 panels for sequential fitting tasks
 
-(1a) Procedure: Individual
+-  (1a) Procedure: Individual
+-  (1b) Task: Simulate
+-  \(2) INITIAL CONDITIONS: (Leave default)
 
-(1b) Task: Simulate
-
-(2) INITIAL CONDITIONS: (Leave default)
-
--  *Note*: Often, one may change starting P\ :sub:`A`, k\ :sub:`ex`,
+   -  **Note**: Often, one may change starting P\ :sub:`A`, k\ :sub:`ex`,
    Δω\ :sub:`H`, and Δω\ :sub:`X`
--  To change starting R20, see
+   -  To change starting R20, see
    https://groups.google.com/d/topic/guardd/A4c-3bn21Yk/discussion
 
-Click Go! (1-5 sec)
+-  Click Go! (1-5 sec)
 
--  Note that these initial conditions are reasonable (fit is somewhat close to data)
+   -  Note that these initial conditions are reasonable (fit is somewhat close to data)
 
-(1b) Task: Optimize fit
+-  (1b) Task: Optimize fit
 
--  Click Go! (5-30 sec)
+    -  Click Go! (5-30 sec)
 
-(3) SELECT fit and view results
+-  \(3) SELECT fit and view results
 
 -  There are three "fits" to the data: NoEx, Sim-1, and Fit-1
 -  Select each at a time, and note that Fit-1 is the best (lines go through data in panel (4))
 -  Select Fit-1
 -  Click Set best fit
 
-(6) Designate which parameters are OK
+-  \(6) Designate which parameters are OK
 
--  Check Best fit is OK
--  Click All
--  **Note** In general, one should more carefully check if the best fit is OK. 
+   -  Check Best fit is OK
+   -  Click All
+   -  **Note** In general, one should more carefully check if the best fit is OK. 
 
-   -  Guidelines for determining the quality of the fit can be found in the Manual.
+      -  Guidelines for determining the quality of the fit can be found in the Manual.
 
 .. image:: tutorial-GUARDD-2011.06.17--06.png
 
@@ -275,25 +307,24 @@ If unsure about which initial conditions to use, the grid search fits multiple t
 | Steps    | 1        | 2      | 2        |
 +----------+----------+--------+----------+
 
-Click **Save**
+-  Click **Save**
 
-(1b): Task: **Optimize fit**
+-  (1b): Task: **Optimize fit**
 
-Click **Go!** (5-10 sec/fit x 12 fits = 60-120 sec)
+-  Click **Go!** (5-10 sec/fit x 12 fits = 60-120 sec)
 
-Note: Progress can also be viewed in the MATLAB Command Window
+   -  Note: Progress can also be viewed in the MATLAB Command Window
 
-(3) SELECT fit and view results
+-  \(3) SELECT fit and view results
 
--  The Fit-G result listed is the best fit (lowest χ^2^) out of
-   all the 12 fits in the grid search
--  The remaining 11 fits can be viewed in the Chi2 Map window. See the Manual for directions on the Chi2 Map.
+   -  The Fit-G result listed is the best fit (lowest χ\ :sup:`2`\) out of all the 12 fits in the grid search
+   -  The remaining 11 fits can be viewed in the Chi2 Map window. See the Manual for directions on the χ\ :sup:`2` Map.
 
-(6) Designate which parameters are OK
+-  \(6) Designate which parameters are OK
 
-Click All
+   -  Click All
 
-Observe: Becuase the initial conditions used for Fit-1 above were
+**Observe**: Becuase the initial conditions used for Fit-1 above were
 appropriate, both Fit-1 and Fig-G yield the same result
 
 -  Note: The grid search can demonstrate success if the optimal fit is
@@ -376,15 +407,15 @@ Click **Go!** (1-5 sec)
 -  Note that these initial conditions are reasonable (fit is somewhat
    close to data)
 
-(1b) Task: **Optimize fit**
+-  (1b) Task: **Optimize fit**
 
-Click **Go!** (5-30 sec)
+-  Click **Go!** (5-30 sec)
 
-(3) Select Fit-1[--] fit result
+-  \(3) Select Fit-1[--] fit result
 
 -  Click **Set best fit**
 
-(6) Designate that all parameters are OK
+-  \(6) Designate that all parameters are OK
 
 -  Check **Best fit is OK**
 -  Click **All**
@@ -399,7 +430,7 @@ Fit RD
 -  (1a) Procedure: **Individual**
 -  (1b) Task: **Simulate**
 -  Check **Use Arrhenius**
--  (2) Individual initial conditions
+-  \(2) Individual initial conditions
 
 +-------+--------+----------+--------------+---------------+
 | T0(C) | PA0(%) | kex0(/s) | dH(kcal/mol) | Eab(kcal/mol) |
@@ -418,19 +449,19 @@ Click **Go!** (1-5 sec)
 -  Note that these initial conditions are reasonable (fit is somewhat
    close to data)
 
-(1b) Task: **Optimize fit**
+-  (1b) Task: **Optimize fit**
 
-Click **Go!** (5-30 sec)
+-  Click **Go!** (5-30 sec)
 
-(3) Select Fit-1[CR] fit result
+-  \(3) Select Fit-1[CR] fit result
 
-Click **Set best fit**
+-  Click **Set best fit**
 
-(6) Designate that all parameters are OK
+-  \(6) Designate that all parameters are OK
 
-Check **Best fit is OK**
+-  Check **Best fit is OK**
 
-Click **All**
+-  Click **All**
 
 .. image:: tutorial-GUARDD-2011.06.17--09.png
 
@@ -447,11 +478,11 @@ Main
 
 Rates
 
--  Select fit: **`Fit-1[--]`**
+-  Select fit: **Fit-1[--]**
 -  The rates in this fit are independently determined for each
    temperature
 -  ΔH, E\ :sub:`AB` and E\ :sub:`BA` are extracted from the slopes
--  Select fit: \`Fit-1[CR]\`
+-  Select fit: **Fit-1[CR]**
 -  The rates are constrained to lie along the line with slope ΔH,
    E\ :sub:`AB` or E\ :sub:`BA`
 -  Save the figure to a file
@@ -557,7 +588,7 @@ Select Group
 
 -  Select group Leu 22 (at the bottom)
 -  Click **Select**
--  (Repeat this process with the second curveset, Leu 22\delta2
+-  Repeat this process with the second curveset, Leu 22\delta2
 
 
 **Group -> Sort groups**
@@ -599,7 +630,7 @@ Fit RD
 -  (1a) Procedure: **Individual**
 -  (1b) Task: **Optimize fit**
 -  Uncheck **Use Arrhenius**
--  (2) Individual initial conditions
+-  \(2) Individual initial conditions
 
 +---------+-------+---------+
 | Temp(C) | PA(%) | kex(/s) |
@@ -618,9 +649,9 @@ Fit RD
 +---------------+----------+----------+
 
 -  Click **Go!** (50-100 sec)
--  (3) Select \`Fit-1[--]\` fit result
+-  \(3) Select **Fit-1[--]** fit result
 -  Click **Set best fit**
--  (6) Designate that all parameters are OK
+-  \(6) Designate that all parameters are OK
 -  Check **Best fit is OK**
 -  Click **All**
 
@@ -635,7 +666,7 @@ Fit RD
 -  (1a) Procedure: **Individual**
 -  (1b) Task: **Optimize fit**
 -  Uncheck **Use Arrhenius**
--  (2) Individual initial conditions
+-  \(2) Individual initial conditions
 
 +---------+-------+---------+
 | Temp(C) | PA(%) | kex(/s) |
@@ -655,9 +686,9 @@ Fit RD
 
 Click **Go!** (50-100 sec)
 
-(3) Select \`Fit-1[--]\` fit result
+\(3) Select **Fit-1[--]** fit result
 
-(6) Designate that all parameters are OK
+\(6) Designate that all parameters are OK
 
 -  Check **Best fit is OK**
 -  Click **All**
