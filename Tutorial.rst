@@ -6,7 +6,7 @@ General notes
 
 -  Sample data for this tutorial is provided here_. 
 
-.. _here: http://code.google.com/p/guardd/downloads/list
+   .. _here: http://code.google.com/p/guardd/downloads/list
 
 -  Tutorial images shown below are from GUARDD v.2011.07.01 and associated GUARDD-Session-Tutorial.mat file
 
@@ -29,6 +29,7 @@ General notes
 -  GUARDD is sometimes slow. Turn on CPU monitor to see when program is processing
 
 -  Win: Ctrl+Alt+Del, click Task Manager, watch icon in task bar
+
 -  Mac: Applications folder → Utilities folder → launch
    Activity Monitor
 
@@ -39,7 +40,7 @@ Download and unpack files
 
 -  Download Files here_.
 
-.. _here: http://code.google.com/p/guardd/downloads/list
+   .. _here: http://code.google.com/p/guardd/downloads/list
 
 -  Unpack files
 
@@ -48,20 +49,18 @@ Download and unpack files
 Ensure proper directory structure
 ---------------------------------
 
-GUARDD--YYYY.MM.DD/ (*Note*: YYYY.MM.DD codes for the date (e.g.,
+-  GUARDD--YYYY.MM.DD/ (*Note*: YYYY.MM.DD codes for the date (e.g.,
 2011.06.17))
-
--  tutorial
--  (Many .m files)
--  (Many .fig files)
+-  There should also be a "tutorial" folder present, along with many .m and .fig files 
 
 Start GUARDD
 ------------
 
-Start **Matlab**
+-  Start **Matlab**
 
-Open Matlab command window: **Desktop...Command Window**
-Navigate to GUARDD/ directory and start program
+-  Open Matlab command window: **Desktop...Command Window**
+
+-  Navigate to GUARDD/ directory and start program
 
 -  Matlab command window: 
 
@@ -71,7 +70,7 @@ Navigate to GUARDD/ directory and start program
 
 -  **Note**: YYYY.MM.DD is replaced by the date corresponding to the GUARDD version (e.g., 2011.06.08)
 
--  Matlab command window: 
+-  To launch GUARDD, enter GUARDD in the command line: 
 
 ::
 
@@ -88,13 +87,11 @@ Load data
 
 **Goal:** Get Relaxation Dispersion data into the program for analysis
 
-Main
+- From the **Main** GUARDD window, select the **Input** tab and click on **Data Manager**
 
--  Input -> Data manager
+- In the **Data Manager** window, select **Input** and click on **Script**
 
-Data Manager
-
-Input...Script...
+- Open the following file
 
 ::
    
@@ -148,8 +145,7 @@ Create groups for fitting
 
 -  **Goal**: Aggregate RD curves from the same NMR signal (assignment) for group fitting
 
-Essential notes on data organization
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Essential notes on data organization**
 
 -  Datasets designate experimental conditions
 -  Datasets contain Curves, which contain RD data
@@ -157,40 +153,37 @@ Essential notes on data organization
 -  Curvests are aggregated across different NMR probes into Groups (to share k\ :sub:`ex` and P\ :sub:`A`)
 -  Details regarding data organization are discussed in the Manual
 
-Data Manager
-~~~~~~~~~~~~
+-  Open the **Data Manager** window
+-  Select the **Group** tab and click on **Generate from subsets of data**
+-  Create Groups
+
+  -  Make groups only for Ile residues at 25\ :sup:`o`\ C
+  -  Check Residue
+  -  Type Ile
+  -  Check TempC
+  -  Type 25
+
+-  Click **Generate Groups**
+
+**Data Manager**
 
 Group...Generate from subset of data...
 
-Create Groups
+-  Create Groups
 
--  Make groups only for Ile residues at 25\ :sup:`o`\ C
--  Check Residue
--  Type Ile
--  Check TempC
--  Type 25
+-  Make groups only for index 22
 
-Click Generate Groups
-
-Data Manager
-
-Group...Generate from subset of data...
-
-Create Groups
-
-Make groups only for index 22
-
--  Check Index
--  Type 22
--  Click Generate groups
+  -  Check Index
+  -  Type 22
+  -  Click Generate groups
 
 .. image:: tutorial-GUARDD-2011.06.17--03.png
 
-Data Manager
+**Data Manager**
 
--  Group...Sort groups
+-  Select the **Group** tab and click on **Sort Groups**
 
-Close the Data Manager window
+-  Close the **Data Manager** window
 
 .. image:: tutorial-GUARDD-2011.06.17--04.png
 
@@ -203,15 +196,13 @@ Select groups that exhibit exchange
 Select Groups
 ~~~~~~~~~~~~~
 
-Main
+-  In the **Main** window, click the **Refresh** button to show loaded groups
 
-Click Refresh to show loaded groups
+-  Use **<** and **>** to cycle through groups
 
-Use **<** and **>** to cycle through groups
+-  Check Exch? if the data are not horizontal (i.e., if R\ :sub:`ex` > 0)
 
-Check Exch? if the data are not horizontal (i.e., if R\ :sub:`ex` > 0)
-
--  Note: all residues exhibit exchange except Ile 61δ\ :sub:`1` and Ile 68δ\ :sub:`1`
+-  **Note**: all residues exhibit exchange except Ile 61δ\ :sub:`1` and Ile 68δ\ :sub:`1`
 
 .. image:: tutorial-GUARDD-2011.06.17--05.png
 
@@ -248,15 +239,13 @@ Fit simple group manually
 Fitting
 ~~~~~~~
 
-Main
+- In the **Main** window: check the **Fit Dispersion** box
 
-Check Fit dispersion
+- Select Ile 26
 
-Select Ile 26
+- In the **Analysis** tab, click **Fit RD**
 
-Fit RD
-
-Contains 6 panels for sequential fitting tasks
+- The **Fit RD** window contains 6 panels for sequential fitting tasks
 
 -  (1a) Procedure: Individual
 -  (1b) Task: Simulate
@@ -292,7 +281,7 @@ Contains 6 panels for sequential fitting tasks
 
 .. image:: tutorial-GUARDD-2011.06.17--06.png
 
-If unsure about which initial conditions to use, the grid search fits multiple times with different initial condition
+-  **Note**: If unsure about which initial conditions to use, the grid search fits multiple times with different initial conditions
 
 -  (1a) Procedure: Grid search
 -  In the interest of time, use this relatively small grid
@@ -337,12 +326,9 @@ appropriate, both Fit-1 and Fig-G yield the same result
 Save GUARDD session to file
 ---------------------------
 
-Main
-
--  Output...Save session as...
--  GUARDD will create an output folder named with the date, and suggest
-   a filename for you
--  Note: To change the default output folder, use the Settings window.
+-  In the **Main** GUARDD window, select the **Output** tab. Click **Save Session As**
+-  GUARDD will create an output folder named with the date, and suggest a filename for you
+-  **Note**: To change the default output folder, use the Settings window.
 
 Tip: Save your work often (in case GUARDD and/or MATLAB crashes)
 
@@ -371,16 +357,13 @@ Demonstrate multi-temperature fitting options
 Fit without rate constraints (Method A)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Main
-
+**Main** GUARDD window
 -  Select \Leu 22delta1
--  The Fit RD window should automatically open (no double-click
-   required)
--  If it does not open, check **Fit dispersion** then select **Leu
-   22delta1**
+-  The Fit RD window should automatically open (no double-click required)
+-  If it does not open, check **Fit dispersion** then select **Leu 22delta1**
 
-Fit RD
 
+**Fit RD** Window
 -  (1a) Procedure: **Individual**
 -  (1b) Task: **Simulate**
 -  Uncheck **Use Arrhenius**
@@ -425,7 +408,7 @@ Click **Go!** (1-5 sec)
 Fit with rate constraints (Method B)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Fit RD
+**Fit RD**
 
 -  (1a) Procedure: **Individual**
 -  (1b) Task: **Simulate**
@@ -471,13 +454,10 @@ Examine rate analysis (vant Hoff and Arrhenius)
 Use Rates window to examine temperature-dependence of rates (vant Hoff and Arrenius)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Main
+**Main**
 
 -  Make sure Leu 22delta1 is selected
--  Output...Display rates...
-
-Rates
-
+-  Select the **Output** tab and select **Display Rates**
 -  Select fit: **Fit-1[--]**
 -  The rates in this fit are independently determined for each
    temperature
@@ -493,18 +473,17 @@ Rates
 View fits to RD data
 --------------------
 
-Use Display RD window to assess the fit to the RD data, and prepare an output figure
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Goals**
 
-Create a 3D plot that highlights the amount of data in the set
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-  Use Display RD window to assess the fit to the RD data, and prepare an output figure
+-  Create a 3D plot that highlights the amount of data in the set
 
-Main
+**Main**
 
 -  Make sure Leu 22delta1 is selected
 -  Output...Display RD...
 
-Display RD
+**Display RD**
 
 -  Select all the curves in the Curveset(Curve) list
 -  Select fit Fit-1[CR] from fit list
@@ -522,33 +501,31 @@ Display RD
 Create a 2D plot with residuals that highlights the fit to some of the data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Display RD
+**Display RD**
 
-Select only the following curves from the list
+-  Select only the following curves from the list
 
--  Curve 1: 800-MQ-25C
--  Curve 5: 800-MQ-32C
--  Curve 8: 800-MQ-37C
+  -  Curve 1: 800-MQ-25C
+  -  Curve 5: 800-MQ-32C
+  -  Curve 8: 800-MQ-37C
 
-Select fit Fit-1[--] from fit list
+-  Select fit Fit-1[--] from fit list
 
-Uncheck **3D Angle**
+-  Uncheck **3D Angle**
 
-Check **Show Residuals**
+-  Check **Show Residuals**
 
-Click **Save Figure to Disk** icon in taskbar
+-  Click **Save Figure to Disk** icon in taskbar
 
-GUARDD will prepare a **new** filename becuase it is a different fit
-number
+-  GUARDD will prepare a **new** filename becuase it is a different fit number
 
-Type **ps** to save as a postscript file and click **Save** (or hit
-**Enter**)
+-  Type **ps** to save as a postscript file and click **Save** (or hit **Enter**)
 
-Close the Display RD window
+-  Close the Display RD window
 
 .. image:: tutorial-GUARDD-2011.06.17--12.png
 
-Save the session often
+**Save the session often!**
 
 -  Main
 -  Output...Save session as...
@@ -565,11 +542,11 @@ Create a multi-curveset, multi-temperature group
 Use Data Manager to create a group with multiple curvesets
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Main
+**Main**
 
 -  Input...Data manager...
 
-Data Manager
+**Data Manager**
 
 Create a new group for Leu 22
 
@@ -598,8 +575,8 @@ Select Group
 -  Make sure that group\Leu 22\ contains two curvesets: \Cp(Leu 22\delta1)\ and \Cp(Leu22\delta2)\  
 -  **Note**: A copy ("Cp") is made because this is a different curveset than the original, and therefore may contain a different set of curves (e.g., only one temperature, only MQ)  
 -  It can be renamed if desired, with no adverse effects 
--  See the manualfor more on organizing data 
--  Close Data Manager 
+-  See the manual for more on organizing data 
+-  Close **Data Manager** 
 
 .. image:: tutorial-GUARDD-2011.06.17--14.png
 
@@ -617,7 +594,7 @@ propagated to all curves in curveset
 
 Determine and R\ :sub:`2`\ :sup:`0` for each curve (x20)
 
-Main
+**Main**
 
 -  Uncheck **Fit dispersion** so the window does not open automatically
 -  Click **Refresh** so the new group appears
@@ -625,7 +602,7 @@ Main
 -  Check **Exch?**
 -  Analysis...Fit dispersion...
 
-Fit RD
+**Fit RD**
 
 -  (1a) Procedure: **Individual**
 -  (1b) Task: **Optimize fit**
@@ -660,7 +637,7 @@ Fit RD
 Demonstrate issue that some optimized fits are sensitive to initial conditions (especially noisy and/or many data)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Fit RD
+**Fit RD**
 
 -  Fit without rate constraints
 -  (1a) Procedure: **Individual**
@@ -705,7 +682,7 @@ Click **Go!** (50-100 sec)
 
 -  There are systematic ways to assess quality of fit. These methods are covered later in this tutorial
 
--  Close Fit RD window
+-  Close **Fit RD** window
 
 **Save the session often**
 
@@ -721,28 +698,27 @@ Perform batch task
 Fit several groups sequentially to obviate need for user input
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Main
+**Main**
 
 -  Analysis...Batch task...
 
-Batch
+**Batch**
 
-Select groups for analysis
+-  Select groups for analysis
 
-Highlight rows corresponding to each group
+-  Highlight rows corresponding to each group
 
-Click **Include** button
+-  Click **Include** button
 
-**Note**: The checkboxes are read-only (not clickable, sorry!)
+-  **Note**: The checkboxes are read-only (not clickable, sorry!)
 
-Specify the task
+-  Specify the task
 
--  Grid search: **Optimize fit**
--  Use Arrhenius: **Unchecked**
--  *Note*: Fixing Arrhenius analysis adds two more dimensions to the
-   grid search (dH and Eab)
--  Errors: **Unchecked**
--  Click on any one row to specify grid search limits
+   -  Grid search: **Optimize fit**
+   -  Use Arrhenius: **Unchecked**
+   -  *Note*: Fixing Arrhenius analysis adds two more dimensions to the grid search (dH and Eab)
+   -  Errors: **Unchecked**
+   -  Click on any one row to specify grid search limits
 
 +-------+----------+----------+--------+----------+
 |       | dwH(ppm) | dwX(ppm) | PA0(%) | kex0(/s) |
@@ -799,8 +775,7 @@ Determine how well RD parameters are determined and which parameters are OK
 
 Check fit to data and the resulting residuals
 
-A well-determined fit yields residuals randomly distributed about zero
-(i.e., not systematically shaped)
+-  A well-determined fit yields residuals randomly distributed about zero (i.e., not systematically shaped)
 
 Check sensitivity of fit to initial conditions (*grid search*)
 
@@ -809,19 +784,18 @@ Check sensitivity of fit to initial conditions (*grid search*)
 Check sensitivity of fit to errors in data (*Monte Carlo errors*)
 
 -  A well-determined fit yields a narrow set of MC-fits from Monte Carlo
-   analysis
--  
+   analysis 
 
 Check **exchange-timescale** parameter α
 
--  Fast exchange (k:sub:`ex`\>>Δω; α→2.0) precludes knowledge of
+-  Fast exchange (k\ :sub:`ex`\>>Δω; α→2.0) precludes knowledge of
    P\ :sub:`A` and Δω
 -  This is often evident in prior steps
 
 Load GUARDD session with data already fit
 -----------------------------------------
 
-Main
+**Main**
 
 -  Input...Load session...
 -  Select tutorial file: 
@@ -876,7 +850,7 @@ View Grid Search Chi2 Map for good fit
 Key info on features of chi2 maps
 
 -  A Chi2 map displays a set of parameter values (e.g., for
-   k\ :sub:`ex`) on the X-axis and the goodness of fit (χ:sup:`2`)
+   k\ :sub:`ex`) on the X-axis and the goodness of fit (χ\ :sup:`2`\)
    associated with that value on the Y-axis
 -  The most precise fit is at the min(χ\ :sup:`2`)
 -  Chi2 maps take a variety of shapes, such as ".", "U", "W", and "-"
@@ -887,13 +861,13 @@ Key info on features of chi2 maps
 
 **Goal**: Use both Chi2 Map window and Fit RD window to view data
 
-Main
+**Main**
 
 -  Select Leu 22delta1
 -  Output...Display chi2 map...
 -  Analysis...Fit dispersion...
 
-Chi2 Map
+**Chi2 Map**
 
 -  **Parameters**: dwH, dwX, Pa, kex
 -  **Curveset (Curve)**: 800-MQ-25C, 800-MQ-32C, 800-MQ-37C
@@ -933,20 +907,20 @@ shown
 
 **Observe**: The fit to the no exchange model is inappropriate
 
-Chi2 Map
+**Chi2 Map**
 
 #. Select **Fit**: NoEx[--]
 #. The χ\ :sup:`2` = 2163.58, which is very large
 #. The 60 optimized fits are well below this value
 
-Fit RD
+**Fit RD**
 
 #. Select **Fit**: NoEx[--]
 #. The fit is a poor representation of the data
 
 **Observe**: The best fit is appropriate since the chi2 map remain U-shaped near the best result
 
-Chi2 Map
+**Chi2 Map**
 
 #. Select **Fit**:  FIT-G[--] Chi2=93.33
 #. Move the **Top%** slider down to 50% in 4-6 small steps
@@ -973,7 +947,7 @@ Key info on Monte Carlo analysis
    parameter values
 -  **Details**: Read more about Monte Carlo error estimation in the Manual
 
-Chi2 Map
+**Chi2 Map**
 
 #. Make sure **Fit**: FIT-G[--] Chi2=93.33 is selected
 #. Set **Top%** slider all the way to the top (100%)
@@ -1007,7 +981,7 @@ in the data
    deviation from the distribution of MC fitted values
 -  Each deviation is reported as the "error" in each fitted parameter
    (shown in brackets)
--  **Note**: it is usually best to use a **Top%**=100% for MC errors
+-  **Note**: it is usually best to use a **Top%** =100% for MC errors
 -  Sometimes anomalous fits yield very large χ\ :sup:`2`, and can be
    discarded, but this is rare
 
@@ -1036,7 +1010,7 @@ Ile 43, a good fit with unknown parameters
 -  MC Errors: very wide, reflecting many fitting soltuions
 -  Parameters: P\ :sub:`A` and Δω unknown
 
-Main
+**Main**
 
 #. Select Ile 43 delta1
 #. Output...Display chi2 map...
@@ -1044,13 +1018,13 @@ Main
 
 .. image:: figure-monte_carlo.png
 
-Chi2 Map
+**Chi2 Map**
 
 #. **Parameters**: dwH, dwX, Pa, kex
 #. **Curveset** (Curve)*: 800-MQ-25C
 #. **Top%** slider all the way to the top (100%)
-#. **Fit**: FIT-G[--] Chi2=20.49}}}
-#. **Task to Display***: Grid Search
+#. **Fit**: FIT-G[--] Chi2=20.49
+#. **Task to Display**: Grid Search
 #. **Results to Display**: Final
 #. **Display Mode**: Scatter
 
@@ -1060,7 +1034,7 @@ Chi2 Map
 
 **Goal**: Add the higher-χ\ :sup:`2` fit to the fit list for further inspection
 
-Chi2 Map
+**Chi2 Map**
 
 #. Check **Pick grid fit**
 #. Scroll to the right, and select fit number 60, chi2=20.9464 (or
@@ -1070,9 +1044,9 @@ Chi2 Map
 #. The fit FIT-G[--] Chi2=20.95 is now highlighted by the green
    diamond and red circle (since it is selected)
 
-Fit RD
+**Fit RD**
 
-#. (3) SELECT the new fit FIT-G[--] Chi2=20.95 from the list
+#. \(3) SELECT the new fit FIT-G[--] Chi2=20.95 from the list
 #. **Note**: if it is not shown, the list can be update by re-selecting
    any fit on the list (then check again)
 #. **Observe**: These two fits both appear to go through the data! (which
@@ -1088,7 +1062,7 @@ View Monte Carlo Errors χ\ :sup:`2` Map for fit with uknown parameters
 
 **Goal**: Illustrate features of Grid Search and MC Errors which correspond to a partially-defined fit
 
-Chi2 Map
+**Chi2 Map**
 
 #. Make sure **Fit**: FIT-G[--] Chi2=20.49 is selected
 #. Set **Top%** slider all the way to the top (100%)
@@ -1102,10 +1076,10 @@ Chi2 Map
 
 **Goal**: Mark these parameters as "Not OK" in the Fit RD window
 
-Fit RD
+**Fit RD**
 
-#. (3) SELECT the fit FIT-G[--] Chi2=20.49 from the list
-#. (6) Designate which elements of this fit are OK
+#. \(3) SELECT the fit FIT-G[--] Chi2=20.49 from the list
+#. \(6) Designate which elements of this fit are OK
 #. **Exchange**: check
 #. **Best fit is OK**: check
 #. Click **Set best fit**, if possible (should be "best" already)
@@ -1122,11 +1096,11 @@ Document notes for organization
 
 **Goal**: View and maintain organized notes for interpreting fit results
 
-Main
+**Main**
 
 #. Analysis...Notes...
 
-Notes
+**Notes**
 
 #. Notes on groups are edited in the Fit RD window
 #. Notes on the session can be created and edited in the Notes window
@@ -1146,7 +1120,7 @@ View results in display cluster
 
 **Goal**: Load GUARDD session with data already fit (in case this has not been done already)
 
-Main
+**Main**
 
 #. Input...Load session...
 #. Select tutorial file: 
@@ -1169,11 +1143,11 @@ v.2011.09.11)
 
 **Goal**: Create two display groups to compare different fitting constraints
 
-Main
+**Main**
 
-Output...Display group results...
+-  Output...Display group results...
 
-Groups
+**Groups**
 
 #. Click **New**
 #. Set **name**: Isolated fits
@@ -1189,7 +1163,7 @@ Groups
 
 **Goal**: Compare individual fits from each NMR probe to form candidate groups, identify outliers, etc.
 
-Groups
+**Groups**
 
 Panel
 
@@ -1252,18 +1226,18 @@ Export data and groups
 
 **Goal**: Aggregate and output results for dissemination
 
-Main
+**Main**
 
-Input...Data manager...
+-  Input...Data manager...
 
-Data Manager
+**Data Manager**
 
 #. Output...Datasets...
 #. Save the file 
 
 -  This copies all imported datasets
 
-Output...Groups...
+-  Output...Groups...
 
 #. Save the file 
 #. Contains all groups, curvesets, and curves created for analysis
@@ -1280,11 +1254,11 @@ Simulate multi-field dataset
 
 **Goal**: Simulate a simple dataset at two magnetic fields
 
-Main
+**Main**
 
-Input...RD Simulator...
+-  Input...RD Simulator...
 
-RD Simulator
+**RD Simulator**
 
 Create a new SimCurveset, which specifies kinetics and chemical shifts
 for all curves within
@@ -1306,7 +1280,7 @@ Simulate multi-field, multi-temperature dataset
 
 **Goal**: Simulate a dataset at two magnetic fields and three temperatures
 
-RD Simulator
+**RD Simulator**
 
 Create a new SimCurveset
 
@@ -1383,12 +1357,12 @@ Explore temperature-dependence of exchange kinetics
 
 **Note**: Please complete prior tutorial section before proceeding
 
-RD Simulator
+**RD Simulator**
 
 #. Start the Kinetic Simulator
 #. CURVESET: Click \*Run Kinetics Sim\*
 
-Kinetic Simulator
+**Kinetic Simulator**
 
 -  This window operates on the Sim Curvesets, and displays the effect of temperature on the RD parameters P\ :sub:`A` and k\ :sub:`ex`
 
@@ -1407,12 +1381,12 @@ Kinetic Simulator
 
 Check this effect on the simulated RD surface plot
 
-RD Simulator
+**RD Simulator**
 
 #. Click the **Refresh display** icon in the title bar
 #. **Observe**: The RD signal now **increases** with temperature, because the population of the minor state, P\ :sub:`B` = (1-P\ :sub:`A`\), becomes larger at higher temperatures
 
-Kinetic Simulator
+**Kinetic Simulator**
 
 -  Close the window (X)
 
@@ -1425,7 +1399,7 @@ Export simulated data
 
 **Note**: Please complete prior tutorial section before proceeding
 
-RD Simulator
+**RD Simulator**
 
 #. Click the **Export** icon in the title bar
 
@@ -1435,7 +1409,7 @@ RD Simulator Export
 #. Click **Export to TXT**
 #. Save the file 
 
-RD Simulator
+**RD Simulator**
 
 #. Click the **Export** icon in the title bar
 #. Set **Sim Points** to 15

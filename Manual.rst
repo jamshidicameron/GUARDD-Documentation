@@ -86,7 +86,7 @@ The RD experiment refocuses chemical exchange broadening R\ :sub:`ex`
    spin-echo pulse trains to suppress relaxation due to exchange
    processes on the µs-ms timescale.
 -  **(a)** The number of spin-echo pulses applied during the fixed
-   relaxation time directly determines the CPMG frequency via ν\ :sub:`CPMG` = 1 // (4τ).
+   relaxation time directly determines the CPMG frequency via ν\ :sub:`CPMG` = 1 / (4τ).
 
    -  The applied CPMG pulse train is shown above each relaxation delay
       (ν\ :sub:`CPMG` = 100, 500 and 1100 Hz).
@@ -119,8 +119,8 @@ single RD Curve**
 
 **Structural parameters (1 or 2 per NMR probe)** 
 
--  |\(Δω\ :sub:`H`)\| (rad/s): Magnitude of :sup:`1`\ H chemical shift difference between A and B states (for MQ Curves only) 
--  |\(Δω\ :sub:`X`)\| (rad/s): Magnitude of :sup:`A`\ X chemical shift difference between A and B states (AX = :sup:`13`\ C or :sup:`15`\ N) 
+-  \|(Δω\ :sub:`H`)\| (rad/s): Magnitude of :sup:`1`\ H chemical shift difference between A and B states (for MQ Curves only) 
+-  \|(Δω\ :sub:`X`)\| (rad/s): Magnitude of :sup:`A`\ X chemical shift difference between A and B states (AX = :sup:`13`\ C or :sup:`15`\ N) 
 
 **Kinetic parameters (2 per temperature per NMR probe)** 
 
@@ -143,7 +143,7 @@ Fitting requries five parameters per Curve, but often parameters can be shared w
 aggregated into Curvesets, which are aggregated into Groups 
 
 Details on Curves, Curvesets, and Groups can be found later in the Manual
-
+s
 .. image:: figure-data_management-example.png
 
 (Figure above) 
@@ -158,18 +158,18 @@ Details on Curves, Curvesets, and Groups can be found later in the Manual
       (R\ :sub:`2A`\ :sup:`0` = R\ :sub:`2B`\ :sup:`0`)
 
 -  One or more Curves are aggregated into a *Curveset*, which designate
-   the same chemical shift differences |\Δω\ :sub:`H`\| and |\Δω\ :sub:`X`\|
+   the same chemical shift differences \|Δω\ :sub:`H`\| and \|Δω\ :sub:`X`\|
 
-   -  **Assume**: |\Δω\ :sub:`H`\| (ppm) and |\Δω\ :sub:`X`\| (ppm) are independent
+   -  **Assume**: \|Δω\ :sub:`H`\| (ppm) and \|Δω\ :sub:`X`\| (ppm) are independent
       of temperature
 
       -  Therefore, each unique temperature yields an independent
-         measure of |\Δω\ :sub:`H`\| and/or |\Δω\ :sub:`X`\|
+         measure of \|Δω\ :sub:`H`\| and/or \|Δω\ :sub:`X`\|
 
    -  **NMR**: Resonance frequency scales with magnetic field strength
 
       -  Therefore, each unique B\ :sub:`0` field yields an independent
-         measure of |\Δω\ :sub:`X`\|
+         measure of \|Δω\ :sub:`X`\|
 
       -  See calculations for converting between rad/s and ppm later in the Manual
 
@@ -177,11 +177,11 @@ Details on Curves, Curvesets, and Groups can be found later in the Manual
       quantum coherence
 
       -  Therefore, each unique quantum coherence yields an independent
-         measure of |\Δω\ :sub:`H`\| and/or |\Δω\ :sub:`X`\|
+         measure of \|Δω\ :sub:`H`\| and/or \|Δω\ :sub:`X`\|
       -  Single Quantum (SQ) experiments are sensitive to only
-         |\Δω\ :sub:`H`\| or |\Δω\ :sub:`X`\|
+         \|Δω\ :sub:`H`\| or \|Δω\ :sub:`X`\|
       -  Multiple Quantum (MQ) experiments are sensitive to the sum
-         |\Δω\ :sub:`H` + Δω\ :sub:`X`\|
+         \|Δω\ :sub:`H` + Δω\ :sub:`X`\|
       -  See Korzhnev, et al. (2005) 
 
          -  More information on Quantum Coherences in dispersion are covered later.
@@ -282,7 +282,7 @@ example data structure discussed below*
 		Linking kex to parameter 8, scaled by 1.000000x
 		Itemizing parameter 14 (R20 @ CS2, C3)
 
--  *Example: Method B - Constrain rate analysis via ΔH and E\ :sub:`AB`*
+-  *Example: Method B - Constrain rate analysis via ΔH and E\ :sub:`AB`\*
 
    -  Define P\ :sub:`A` and k\ :sub:`ex` at a single temperature, T\ :sub:`0`
    -  Define ΔH for temperature-dependence of P\ :sub:`A` (vant Hoff)
@@ -353,12 +353,12 @@ Dataset
 
 -  Properties
 
-   -  *name*: Name of dataset (e.g., ‘MQ 800MHz 25C’)
-   -  *AX_String*: *13\ C or 15\ N*
-   -  **B\ :sub:`0`**: Magnetic field strength (1\ H MHz)
-   -  *Temp*: Temperature (K)
-   -  *TCPMG*: Total CPMG time in pulse sequence
-   -  *SQX*: True=Single Quantum dataset (Δω\ :sub:`H` fixed to zero),
+   -  **name**: Name of dataset (e.g., ‘MQ 800MHz 25C’)
+   -  **AX_String**: *13\ C or 15\ N*
+   -  **\B\ :sub:`0`\**: Magnetic field strength (1\ H MHz)
+   -  **Temp**: Temperature (K)
+   -  **TCPMG**: Total CPMG time in pulse sequence
+   -  **SQX**: True=Single Quantum dataset (Δω\ :sub:`H` fixed to zero),
       False=Multiple Quantum dataset (Δω\ :sub:`H` may be non-zero)
 
 -  Data for each dispersion Curve
@@ -415,11 +415,10 @@ Curve
    Curve for convenience)
 
    -  **AX_String**: 13\ C or 15\ N
-   -  ** B\ :sub:`0`\ **: Magnetic field strength (1\ H MHz)
+   -  **\B\ :sub:`0`\**: Magnetic field strength (1\ H MHz)
    -  **Temp**: Temperature (K)
    -  **TCPMG**: Total CPMG time in pulse sequence
-   -  **SQX**: True=Single Quantum dataset (Δω\ :sub:`H` fixed to zero),
-      False=Multiple Quantum dataset (Δω\ :sub:`H` may be non-zero)
+   -  **SQX**: True=Single Quantum dataset (Δω\ :sub:`H` fixed to zero), False=Multiple Quantum dataset (Δω\ :sub:`H` may be non-zero)
 
 -  Data from its parent Dataset (copied to each Curve
    for convenieice)
@@ -777,19 +776,17 @@ Data Manger
 **Menu items** 
 
 -  Input…
+-  Script… 
 
-   -  Script… 
+  -  Loads a script file
 
-      -  Loads a script file
+- Sequence file…
 
-   - Sequence file…
-
-      -  Load a sequence file ]
+  -  Load a sequence file 
  
 -  Dataset…
    
    -  *Sort Curves (this dataset)* → Curves sorted by {{{index}}} and {{{atom}}} are easier to browse 
-   
    -  *Sort Curves (all datasets)* 
 
 -  Group…
@@ -841,14 +838,13 @@ Data Manger
    -  (Nothing yet) 
 
 -  Output… 
+-  Datasets…  
 
-   -  Datasets…  
+   -  Writes a Dataset file 
 
-      -  Writes a Dataset file 
+ - Groups…
 
-   -  Groups…
-
-      -  Writes a Groups file
+   -  Writes a Groups file
 
 **Panels and buttons** 
 
@@ -1015,7 +1011,7 @@ Fit Dispersion
       -  *Table: Data and initial conditions for each Curve (read-only)*
          → Summary of dataset and its initial fit conditions
 
-   -  *(Grid Search)*
+   -  *Grid Search*
 
       -  *Table: Grid search* → Limits of each dimension in grid search
          
@@ -1202,7 +1198,8 @@ values
 
 #. Eachsubplot shows a single parameter on the X-axis, and its different
    values in different fits 
-#. Each *black point* corresponds to ONE optimized fit result to a synthetic MC dataset # There are 100 fits in this example (hence 100 points in each subplot), each of which
+#. Each *black point* corresponds to ONE optimized fit result to a synthetic MC dataset 
+#. There are 100 fits in this example (hence 100 points in each subplot), each of which
    corresponds to a synthetic MC dataset 
 #. The initial conditions to each fit are given by the best fit to the original data (see *Results
    to display*: Initial) 
@@ -1268,9 +1265,9 @@ Display group results
 
 -  Notes
 
-   -  Some paramters plot one point per Group (e.g., P\ :sub:`A` ork\ :sub:`ex`(37C))
-   -  Some parameter plot one point per Curveset (e.g., \|Δω\ :sub:`X`|) and hence multiple points per Group
-   -  Some paramters *could* plot one point per Curve (e.g., R\ :sub:`ex`) but the FIRST Curve is selected by default
+   -  Some paramters plot one point per Group (e.g., P\ :sub:`A` or k\ :sub:`ex`\(37C))
+   -  Some parameter plot one point per Curveset (e.g., \|Δω\ :sub:`X`\|) and hence multiple points per Group
+   -  Some paramters *could* plot one point per Curve (e.g., R\ :sub:`ex`\) but the FIRST Curve is selected by default
    -  Otherwise there would be too many points on the plot
 
 .. image:: GUARDD-Groups-2011.06.23--05.png
@@ -1385,7 +1382,7 @@ Usually, dispersions with larger R\ :sub:`ex` have a more well-defined solution.
 GUARDD approach to fast exchange and PhiEx
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Issue**: In fast exchange (k\ :sub:`ex` >> Δν = Δω / (2π)), the quantities P\ :sub:`A`, P\ :sub:`B` and Δω
+**Issue**: In fast exchange (k\ :sub:`ex` >> Δν = Δω / (2π)), the quantities P\ :sub:`A`\, P\ :sub:`B` and Δω
 are correlated, and therefore cannot be independently defined
 
 -  **Solution**: sometimes although neither quantity can be defined
@@ -1589,6 +1586,7 @@ Fitting data
 **Goal**: Minimize the sum of squares target function
 
 -  Input 
+   
    #. R\ :sub:`2Eff`\ :sup:`Obs` = RD Curve data points 
 
    #. σ(R\ :sub:`2Eff`\ :sup:`Obs`) = Errors in RD Curve data points 
@@ -1858,7 +1856,7 @@ Kinetic simulator
 
    #. E\ :sub:`AB`
  
-   #. k\ :sub:`ex`\ :sup:`0` = k\ `sub:`ex`\(T\ :sub:`0`\) 
+   #. k\ :sub:`ex`\ :sup:`0` = k\ `:sub:`ex`\(T\ :sub:`0`\) 
 
    #. P\ :sub:`A`\ :sup:`0` = P\ :sub:`A`\(T\ :sub:`0`\) 
 
@@ -1973,7 +1971,7 @@ parameters (*p*) difficult to predict \* Optimization algorithms often “fail�
 
    #. \|Δω\ :sub:`X`\| 
 
-   #. P\ :sub:`A`\ :sup:`0` = P\ :sub:`A`(T`0`), where T`0` is a specified
+   #. P\ :sub:`A`\ :sup:`0` = P\ :sub:`A(T)`\, where T is a specified
       temperature (e.g., 25C) 
 
    #. k\ :sub:`ex`\ :sup:`0` = k\ :sub:`ex`\(T\ :sub:`0`\), where T\ :sub:`0` is a specfied temperature (e.g., 25C) 
