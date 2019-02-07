@@ -1166,7 +1166,7 @@ accurate fit.
 Select fit from grid search
 ########################### 
 
-**Goal**: To examine a particular fit from the grid search that is not the min(χ\ :sup:`2`\), it must be selected from the list. This is helpful for checking another well in χ\ :sup:`2` space.
+**Goal**: To examine a particular fit from the grid search that is not the minimum χ\ :sup:`2`\, it must be selected from the list. This is helpful for checking another well in χ\ :sup:`2` space.
 
 .. image:: tutorial-GUARDD-2011.06.17--31.png
 
